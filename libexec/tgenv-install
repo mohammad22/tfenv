@@ -41,24 +41,29 @@ TGENV_ARCH="${TGENV_ARCH:-amd64}"
 case "$(uname -s)" in
   Darwin*)
     os="darwin_${TGENV_ARCH}"
+    tarball_name="terragrunt_${os}"
     ;;
   MINGW64*)
     os="windows_${TGENV_ARCH}"
+    tarball_name="terragrunt_${os}"
+    tarball_name="terragrunt_${os}.exe"
     ;;
   MSYS_NT*)
     os="windows_${TGENV_ARCH}"
+    tarball_name="terragrunt_${os}.exe"
     ;;
   CYGWIN_NT*)
     os="windows_${TGENV_ARCH}"
+    tarball_name="terragrunt_${os}.exe"
     ;;
   *)
     os="linux_${TGENV_ARCH}"
+    tarball_name="terragrunt_${os}"
     ;;
 esac
 
 version_url="https://github.com/gruntwork-io/terragrunt/releases/download/v${version}"
 
-tarball_name="terragrunt_${os}";
 
 info "Installing Terragrunt v${version}"
 
